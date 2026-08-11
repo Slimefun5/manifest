@@ -14,15 +14,16 @@ export function topoSort(entries) {
 
 const withMeta = (e, meta) => ({
   ...e,
+  dependencies: [...new Set(e.dependencies)].sort(),
   defaultBranch: meta.defaultBranch[e.repo] || null,
-  branches: meta.branches[e.repo] || (meta.defaultBranch[e.repo] ? [meta.defaultBranch[e.repo]] : []),
+  branches: (meta.branches[e.repo] || (meta.defaultBranch[e.repo] ? [meta.defaultBranch[e.repo]] : [])).slice().sort(),
 });
 
 export function buildManifest(classified, meta) {
   return {
     generatedAt: meta.generatedAt,
     core: withMeta(classified.core, meta),
-    libraries: classified.libraries.map((l) => withMeta(l, meta)),
+    libraries: classified.libraries.slice().sort((a, b) => a.id.localeCompare(b.id)).map((l) => withMeta(l, meta)),
     addons: topoSort(classified.addons).map((a) => withMeta(a, meta)),
   };
 }

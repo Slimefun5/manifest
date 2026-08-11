@@ -17,7 +17,9 @@ export async function runDetect({ org, client, now }) {
     files[repo] = { pluginYml, buildGradle };
     meta.branches[repo] = await client.getBranches(repo);
   }
-  return buildManifest(classify(repos.map((r) => r.repo), files), meta);
+  const m = buildManifest(classify(repos.map((r) => r.repo), files), meta);
+  if (!m.core || m.addons.length === 0) throw new Error("detect produced an empty manifest; refusing to emit");
+  return m;
 }
 
 async function main() {

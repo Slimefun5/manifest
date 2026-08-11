@@ -16,7 +16,7 @@ export function classify(repos, files) {
     gLibs.forEach((l) => libRefs.add(l));
     if (f.pluginYml) {
       const p = parsePluginYml(f.pluginYml);
-      const deps = [...new Set([...p.depend, ...gLibs].filter((d) => d !== "slimefun"))];
+      const deps = [...new Set([...p.depend, ...gLibs].filter((d) => d !== "slimefun" && d !== "slimefun5"))];
       const slimefunBuild = f.buildGradle ? /slimefun-addon\.gradle|["']Slimefun5:/.test(f.buildGradle) : false;
       if (p.depend.includes("slimefun") || slimefunBuild) {
         addons.push({ id: idOf(repo), repo, name: p.name || idOf(repo), kind: "addon", dependencies: deps, pluginName: p.name });

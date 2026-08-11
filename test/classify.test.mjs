@@ -29,6 +29,18 @@ test("ignore-list repos never classified", () => {
   assert.deepEqual(r.libraries, []);
 });
 
+test("a github dependency on core itself never appears as a phantom slimefun5 dependency", () => {
+  const repos = ["Slimefun5/Networks"];
+  const files = {
+    "Slimefun5/Networks": {
+      pluginYml: "name: Networks\ndepend: [Slimefun]\n",
+      buildGradle: 'githubImplementation("Slimefun5:Slimefun5:1")',
+    },
+  };
+  const r = classify(repos, files);
+  assert.equal(r.addons[0].dependencies.includes("slimefun5"), false);
+});
+
 test("plugin.yml without a slimefun depend is still an addon when the build carries a slimefun signal", () => {
   const repos = ["Slimefun5/SensibleToolbox"];
   const files = {

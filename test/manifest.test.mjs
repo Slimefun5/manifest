@@ -29,3 +29,25 @@ test("buildManifest stamps meta and shapes output", () => {
   assert.equal(m.core.defaultBranch, "experimental");
   assert.deepEqual(m.addons[0].branches, ["experimental", "stable"]);
 });
+
+test("buildManifest output is deterministic: sorted libraries, branches, and dependencies", () => {
+  const classified = {
+    core: { id: "slimefun", repo: "Slimefun5/Slimefun5", name: "Slimefun", kind: "core", dependencies: [], pluginName: "Slimefun" },
+    libraries: [
+      { id: "zeta", repo: "Slimefun5/Zeta", name: "Zeta", kind: "library", dependencies: [], pluginName: null },
+      { id: "alpha", repo: "Slimefun5/Alpha", name: "Alpha", kind: "library", dependencies: [], pluginName: null },
+    ],
+    addons: [
+      { id: "networks", repo: "Slimefun5/Networks", name: "Networks", kind: "addon", dependencies: ["zeta", "alpha"], pluginName: "Networks" },
+    ],
+  };
+  const meta = {
+    generatedAt: "2026-08-10T00:00:00Z",
+    defaultBranch: { "Slimefun5/Slimefun5": "experimental", "Slimefun5/Zeta": "experimental", "Slimefun5/Alpha": "experimental", "Slimefun5/Networks": "experimental" },
+    branches: { "Slimefun5/Networks": ["stable", "experimental"] },
+  };
+  const m = buildManifest(classified, meta);
+  assert.deepEqual(m.libraries.map((l) => l.id), ["alpha", "zeta"]);
+  assert.deepEqual(m.addons[0].dependencies, ["alpha", "zeta"]);
+  assert.deepEqual(m.addons[0].branches, ["experimental", "stable"]);
+});

@@ -5,7 +5,9 @@ export function makeClient({ token, fetchImpl = fetch } = {}) {
   if (token) headers.Authorization = `Bearer ${token}`;
   const get = async (url) => {
     const res = await fetchImpl(url, { headers });
-    return res.ok ? res.json() : null;
+    if (res.ok) return res.json();
+    if (res.status === 404) return null;
+    throw new Error(`GitHub ${res.status} for ${url}`);
   };
   return {
     async listOrgRepos(org) {
@@ -25,7 +27,7 @@ export function makeClient({ token, fetchImpl = fetch } = {}) {
     },
     async getBranches(repo) {
       const data = await get(`${API}/repos/${repo}/branches?per_page=100`);
-      return data ? data.map((b) => b.name) : [];
+      return data ? data.map((b) => b.name).sort() : [];
     },
   };
 }

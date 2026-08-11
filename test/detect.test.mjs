@@ -24,3 +24,15 @@ test("runDetect assembles a manifest from a fake client", async () => {
   assert.deepEqual(m.addons.map((a) => a.id), ["networks"]);
   assert.deepEqual(m.libraries.map((l) => l.id), ["infinitylib"]);
 });
+
+test("runDetect refuses to emit an empty manifest", async () => {
+  const client = {
+    async listOrgRepos() { return []; },
+    async getFile() { return null; },
+    async getBranches() { return []; },
+  };
+  await assert.rejects(
+    () => runDetect({ org: "Slimefun5", client, now: "2026-08-10T00:00:00Z" }),
+    /empty manifest/,
+  );
+});
