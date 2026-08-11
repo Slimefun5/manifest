@@ -2,6 +2,7 @@ import { makeClient } from "./github.mjs";
 import { classify } from "./classify.mjs";
 import { buildManifest } from "./manifest.mjs";
 import { writeFileSync } from "node:fs";
+import { pathToFileURL } from "node:url";
 
 export async function runDetect({ org, client, now }) {
   const repos = await client.listOrgRepos(org);
@@ -26,4 +27,4 @@ async function main() {
   console.log(`wrote ${manifest.addons.length} addons, ${manifest.libraries.length} libraries`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) main();
+if (import.meta.url === pathToFileURL(process.argv[1]).href) main();
