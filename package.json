@@ -1,0 +1,9 @@
+{
+  "name": "slimefun-manifest",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test",
+    "generate": "node src/detect.mjs"
+  }
+}
