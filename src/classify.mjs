@@ -1,5 +1,6 @@
 import { parsePluginYml } from "./pluginYml.mjs";
 import { parseGithubLibs } from "./gradleDeps.mjs";
+import { prettify } from "./pretty.mjs";
 
 const IGNORE = new Set(["web", "manifest", "builds", "wiki", "workflows", "gradle", ".github", "bot", "slimefun5.github.io"]);
 const idOf = (repo) => repo.split("/")[1].toLowerCase();
@@ -19,7 +20,7 @@ export function classify(repos, files) {
       const deps = [...new Set([...p.depend, ...gLibs].filter((d) => d !== "slimefun" && d !== "slimefun5"))];
       const slimefunBuild = f.buildGradle ? /slimefun-addon\.gradle|["']Slimefun5:/.test(f.buildGradle) : false;
       if (p.depend.includes("slimefun") || slimefunBuild) {
-        addons.push({ id: idOf(repo), repo, name: p.name || idOf(repo), kind: "addon", dependencies: deps, pluginName: p.name });
+        addons.push({ id: idOf(repo), repo, name: prettify(repo.split("/")[1]), kind: "addon", dependencies: deps, pluginName: p.name });
       }
     }
   }
@@ -27,6 +28,6 @@ export function classify(repos, files) {
   const libraries = repos
     .filter((repo) => !ignored(repo) && repo !== core.repo)
     .filter((repo) => libRefs.has(idOf(repo)) && !addonIds.has(idOf(repo)))
-    .map((repo) => ({ id: idOf(repo), repo, name: repo.split("/")[1], kind: "library", dependencies: [], pluginName: null }));
+    .map((repo) => ({ id: idOf(repo), repo, name: prettify(repo.split("/")[1]), kind: "library", dependencies: [], pluginName: null }));
   return { core, libraries, addons };
 }
