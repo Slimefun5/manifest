@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T08:05:53.149Z",
+  "generatedAt": "2026-08-11T08:15:00.652Z",
   "core": {
     "id": "slimefun",
     "repo": "Slimefun5/Slimefun5",
@@ -18,11 +18,11 @@
       "chore/string-to-uuid",
       "crowdin/master",
       "experimental",
+      "feature/1_20_5",
       "feature/added-bamboo-too-sawtable",
       "feature/java8-universal-jar",
       "feature/storage-phase-2",
       "feature/unlock-items-in-recipe-menu",
-      "feature/1_20_5",
       "fix/ExplosiveTool_drops_missing",
       "fix/seach-cheat-permission-check",
       "fix/teleport-time-overflow",
@@ -32,6 +32,18 @@
     ]
   },
   "libraries": [
+    {
+      "id": "advancementapi",
+      "repo": "Slimefun5/AdvancementAPI",
+      "name": "AdvancementAPI",
+      "kind": "library",
+      "dependencies": [],
+      "pluginName": null,
+      "defaultBranch": "main",
+      "branches": [
+        "main"
+      ]
+    },
     {
       "id": "infinitylib",
       "repo": "Slimefun5/InfinityLib",
@@ -65,18 +77,6 @@
         "renovate/org.apache.maven.plugins-maven-shade-plugin-3.x",
         "renovate/org.bstats-bstats-bukkit-3.x"
       ]
-    },
-    {
-      "id": "advancementapi",
-      "repo": "Slimefun5/AdvancementAPI",
-      "name": "AdvancementAPI",
-      "kind": "library",
-      "dependencies": [],
-      "pluginName": null,
-      "defaultBranch": "main",
-      "branches": [
-        "main"
-      ]
     }
   ],
   "addons": [
@@ -86,9 +86,8 @@
       "name": "Galactifun",
       "kind": "addon",
       "dependencies": [
-        "slimefunmetrics",
-        "slimefun5",
-        "infinitylib"
+        "infinitylib",
+        "slimefunmetrics"
       ],
       "pluginName": "Galactifun",
       "defaultBranch": "stable",
@@ -198,8 +197,8 @@
       "name": "SlimeTinker",
       "kind": "addon",
       "dependencies": [
-        "slimefunmetrics",
-        "infinitylib"
+        "infinitylib",
+        "slimefunmetrics"
       ],
       "pluginName": "SlimeTinker",
       "defaultBranch": "stable",
@@ -231,9 +230,9 @@
       "name": "DynaTech",
       "kind": "addon",
       "dependencies": [
-        "slimefunmetrics",
         "exoticgarden",
-        "infinityexpansion"
+        "infinityexpansion",
+        "slimefunmetrics"
       ],
       "pluginName": "DynaTech",
       "defaultBranch": "stable",
@@ -265,8 +264,8 @@
       "name": "SFAdvancements",
       "kind": "addon",
       "dependencies": [
-        "slimefunmetrics",
-        "advancementapi"
+        "advancementapi",
+        "slimefunmetrics"
       ],
       "pluginName": "SFAdvancements",
       "defaultBranch": "stable",
@@ -282,8 +281,7 @@
       "name": "MissileWarfare",
       "kind": "addon",
       "dependencies": [
-        "slimefunmetrics",
-        "slimefun5"
+        "slimefunmetrics"
       ],
       "pluginName": "MissileWarfare",
       "defaultBranch": "stable",
