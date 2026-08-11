@@ -28,3 +28,16 @@ test("ignore-list repos never classified", () => {
   assert.deepEqual(r.addons, []);
   assert.deepEqual(r.libraries, []);
 });
+
+test("plugin.yml without a slimefun depend is still an addon when the build carries a slimefun signal", () => {
+  const repos = ["Slimefun5/SensibleToolbox"];
+  const files = {
+    "Slimefun5/SensibleToolbox": {
+      pluginYml: "name: SensibleToolbox\n",
+      buildGradle: 'apply(from = "../gradle/slimefun-addon.gradle")',
+    },
+  };
+  const r = classify(repos, files);
+  assert.deepEqual(r.addons.map((a) => a.id), ["sensibletoolbox"]);
+  assert.equal(r.libraries.length, 0);
+});
