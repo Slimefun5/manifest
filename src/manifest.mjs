@@ -21,7 +21,6 @@ const withMeta = (e, meta) => ({
 
 export function buildManifest(classified, meta) {
   return {
-    generatedAt: meta.generatedAt,
     core: withMeta(classified.core, meta),
     libraries: classified.libraries.slice().sort((a, b) => a.id.localeCompare(b.id)).map((l) => withMeta(l, meta)),
     addons: topoSort(classified.addons).map((a) => withMeta(a, meta)),

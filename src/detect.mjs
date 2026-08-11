@@ -4,10 +4,10 @@ import { buildManifest } from "./manifest.mjs";
 import { writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 
-export async function runDetect({ org, client, now }) {
+export async function runDetect({ org, client }) {
   const repos = await client.listOrgRepos(org);
   const files = {};
-  const meta = { generatedAt: now, defaultBranch: {}, branches: {} };
+  const meta = { defaultBranch: {}, branches: {} };
   for (const { repo, defaultBranch } of repos) {
     meta.defaultBranch[repo] = defaultBranch;
     const pluginYml = await client.getFile(repo, "plugin.yml", defaultBranch)
@@ -24,7 +24,7 @@ export async function runDetect({ org, client, now }) {
 
 async function main() {
   const client = makeClient({ token: process.env.GITHUB_TOKEN });
-  const manifest = await runDetect({ org: "Slimefun5", client, now: new Date().toISOString() });
+  const manifest = await runDetect({ org: "Slimefun5", client });
   writeFileSync(new URL("../addons.json", import.meta.url), JSON.stringify(manifest, null, 2) + "\n");
   console.log(`wrote ${manifest.addons.length} addons, ${manifest.libraries.length} libraries`);
 }

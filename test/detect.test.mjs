@@ -19,7 +19,7 @@ test("runDetect assembles a manifest from a fake client", async () => {
     },
     async getBranches(repo) { return [repo === "Slimefun5/Networks" ? "experimental" : "experimental"]; },
   };
-  const m = await runDetect({ org: "Slimefun5", client, now: "2026-08-10T00:00:00Z" });
+  const m = await runDetect({ org: "Slimefun5", client });
   assert.equal(m.core.id, "slimefun");
   assert.deepEqual(m.addons.map((a) => a.id), ["networks"]);
   assert.deepEqual(m.libraries.map((l) => l.id), ["infinitylib"]);
@@ -32,7 +32,7 @@ test("runDetect refuses to emit an empty manifest", async () => {
     async getBranches() { return []; },
   };
   await assert.rejects(
-    () => runDetect({ org: "Slimefun5", client, now: "2026-08-10T00:00:00Z" }),
+    () => runDetect({ org: "Slimefun5", client }),
     /empty manifest/,
   );
 });

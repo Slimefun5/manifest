@@ -20,12 +20,10 @@ test("buildManifest stamps meta and shapes output", () => {
     addons: [{ id: "networks", repo: "Slimefun5/Networks", name: "Networks", kind: "addon", dependencies: ["infinitylib"], pluginName: "Networks" }],
   };
   const meta = {
-    generatedAt: "2026-08-10T00:00:00Z",
     defaultBranch: { "Slimefun5/Slimefun5": "experimental", "Slimefun5/InfinityLib": "experimental", "Slimefun5/Networks": "experimental" },
     branches: { "Slimefun5/Networks": ["experimental", "stable"] },
   };
   const m = buildManifest(classified, meta);
-  assert.equal(m.generatedAt, "2026-08-10T00:00:00Z");
   assert.equal(m.core.defaultBranch, "experimental");
   assert.deepEqual(m.addons[0].branches, ["experimental", "stable"]);
 });
@@ -42,7 +40,6 @@ test("buildManifest output is deterministic: sorted libraries, branches, and dep
     ],
   };
   const meta = {
-    generatedAt: "2026-08-10T00:00:00Z",
     defaultBranch: { "Slimefun5/Slimefun5": "experimental", "Slimefun5/Zeta": "experimental", "Slimefun5/Alpha": "experimental", "Slimefun5/Networks": "experimental" },
     branches: { "Slimefun5/Networks": ["stable", "experimental"] },
   };

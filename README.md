@@ -11,7 +11,6 @@ The result is written to `addons.json` at the repo root.
 
 ```json
 {
-  "generatedAt": "2026-08-10T00:00:00Z",
   "core": {
     "id": "slimefun",
     "repo": "Slimefun5/Slimefun5",
