@@ -21,6 +21,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node src/detect.mjs
       - name: Commit if changed
+        id: commit
         run: |
           if [ -n "$(git status --porcelain addons.json)" ]; then
             git config user.name "finn"
@@ -28,6 +29,49 @@ jobs:
             git add addons.json
             git commit -m "chore(manifest): refresh addons.json"
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "no change"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+      # GITHUB_TOKEN is scoped to this repo only; cross-repo dispatch needs a PAT with repo scope.
+      - name: Notify Slimefun5/Slimefun5 (manifest-updated)
+        if: steps.commit.outputs.changed == 'true'
+        continue-on-error: true
+        env:
+          PAT: ${{ secrets.PAT }}
+        run: |
+          if [ -z "$PAT" ]; then
+            echo "::warning::PAT secret not set, skipping dispatch to Slimefun5/Slimefun5"
+            exit 0
+          fi
+          status=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
+            -H "Authorization: Bearer $PAT" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/Slimefun5/Slimefun5/dispatches \
+            -d '{"event_type":"manifest-updated"}')
+          if [ "$status" = "204" ]; then
+            echo "dispatched manifest-updated to Slimefun5/Slimefun5"
+          else
+            echo "::warning::dispatch to Slimefun5/Slimefun5 failed (HTTP $status)"
+          fi
+      - name: Notify Slimefun5/wiki (content-changed)
+        if: steps.commit.outputs.changed == 'true'
+        continue-on-error: true
+        env:
+          PAT: ${{ secrets.PAT }}
+        run: |
+          if [ -z "$PAT" ]; then
+            echo "::warning::PAT secret not set, skipping dispatch to Slimefun5/wiki"
+            exit 0
+          fi
+          status=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
+            -H "Authorization: Bearer $PAT" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/Slimefun5/wiki/dispatches \
+            -d '{"event_type":"content-changed"}')
+          if [ "$status" = "204" ]; then
+            echo "dispatched content-changed to Slimefun5/wiki"
+          else
+            echo "::warning::dispatch to Slimefun5/wiki failed (HTTP $status)"
           fi
