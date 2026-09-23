@@ -7,7 +7,7 @@
     "dependencies": [],
     "pluginName": "Slimefun",
     "icon": "BLAZE_POWDER",
-    "defaultBranch": "stable",
+    "defaultBranch": "main",
     "branches": [
       "api/blockstorage-rewrite",
       "breaking/blockstorage-rewrite",
@@ -17,7 +17,7 @@
       "chore/readme-update",
       "chore/string-to-uuid",
       "crowdin/master",
-      "experimental",
+      "development",
       "feature/1_20_5",
       "feature/added-bamboo-too-sawtable",
       "feature/java8-universal-jar",
@@ -26,9 +26,9 @@
       "fix/ExplosiveTool_drops_missing",
       "fix/seach-cheat-permission-check",
       "fix/teleport-time-overflow",
+      "main",
       "performance/ticker-rewrite",
-      "rc",
-      "stable"
+      "rc"
     ]
   },
   "libraries": [
@@ -53,12 +53,12 @@
       "dependencies": [],
       "pluginName": null,
       "icon": "BOOK",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "master",
-        "stable"
+        "main",
+        "master"
       ]
     },
     {
@@ -94,11 +94,11 @@
       ],
       "pluginName": "Galactifun",
       "icon": "FIREWORK_ROCKET",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -111,11 +111,11 @@
       ],
       "pluginName": "SlimefunLuckyBlocks",
       "icon": "GOLD_BLOCK",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -126,11 +126,11 @@
       "dependencies": [],
       "pluginName": "ExoticGarden",
       "icon": "MELON",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -143,11 +143,11 @@
       ],
       "pluginName": "ExtraGear",
       "icon": "DIAMOND_CHESTPLATE",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -160,11 +160,11 @@
       ],
       "pluginName": "LiteXpansion",
       "icon": "REDSTONE",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -177,11 +177,11 @@
       ],
       "pluginName": "SensibleToolbox",
       "icon": "IRON_PICKAXE",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -194,11 +194,11 @@
       ],
       "pluginName": "InfinityExpansion",
       "icon": "NETHER_STAR",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -212,11 +212,11 @@
       ],
       "pluginName": "SlimeTinker",
       "icon": "ANVIL",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -229,11 +229,11 @@
       ],
       "pluginName": "FluffyMachines",
       "icon": "PISTON",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -248,11 +248,11 @@
       ],
       "pluginName": "DynaTech",
       "icon": "FURNACE",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -265,11 +265,11 @@
       ],
       "pluginName": "ChestTerminal",
       "icon": "CHEST",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -283,11 +283,11 @@
       ],
       "pluginName": "SFAdvancements",
       "icon": "KNOWLEDGE_BOOK",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -300,11 +300,11 @@
       ],
       "pluginName": "MissileWarfare",
       "icon": "TNT",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -317,11 +317,11 @@
       ],
       "pluginName": "Networks",
       "icon": "HOPPER",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -332,11 +332,11 @@
       "dependencies": [],
       "pluginName": "SoulJars",
       "icon": "SOUL_LANTERN",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -349,11 +349,11 @@
       ],
       "pluginName": "FastMachines",
       "icon": "DISPENSER",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -364,11 +364,11 @@
       "dependencies": [],
       "pluginName": "GeneticChickengineering",
       "icon": "EGG",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -379,11 +379,11 @@
       "dependencies": [],
       "pluginName": "Supreme",
       "icon": "DIAMOND_SWORD",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -396,11 +396,11 @@
       ],
       "pluginName": "FoxyMachines",
       "icon": "BLAST_FURNACE",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -411,11 +411,11 @@
       "dependencies": [],
       "pluginName": "SimpleMaterialGenerators",
       "icon": "SMOOTH_STONE",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
@@ -428,11 +428,11 @@
       ],
       "pluginName": "SimpleUtils",
       "icon": "CRAFTING_TABLE",
-      "defaultBranch": "stable",
+      "defaultBranch": "main",
       "branches": [
-        "experimental",
+        "development",
         "feature/java8-universal-jar",
-        "stable"
+        "main"
       ]
     },
     {
