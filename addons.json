@@ -27,8 +27,7 @@
       "fix/seach-cheat-permission-check",
       "fix/teleport-time-overflow",
       "main",
-      "performance/ticker-rewrite",
-      "rc"
+      "performance/ticker-rewrite"
     ]
   },
   "libraries": [
@@ -57,8 +56,7 @@
       "branches": [
         "development",
         "feature/java8-universal-jar",
-        "main",
-        "master"
+        "main"
       ]
     },
     {
