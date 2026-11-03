@@ -41,6 +41,7 @@
       "icon": "BOOK",
       "defaultBranch": "main",
       "branches": [
+        "development",
         "main"
       ]
     },
@@ -440,9 +441,10 @@
       "kind": "addon",
       "dependencies": [],
       "pluginName": "SlimeHUD",
-      "defaultBranch": "master",
+      "defaultBranch": "main",
       "branches": [
-        "master"
+        "development",
+        "main"
       ]
     },
     {
@@ -452,9 +454,10 @@
       "kind": "addon",
       "dependencies": [],
       "pluginName": "ExtraTools",
-      "defaultBranch": "master",
+      "defaultBranch": "main",
       "branches": [
-        "master"
+        "development",
+        "main"
       ]
     },
     {
@@ -467,6 +470,7 @@
       "defaultBranch": "main",
       "branches": [
         "blob-buid",
+        "development",
         "feature/allow_disabling_drops",
         "feature/blob-builds",
         "main"
